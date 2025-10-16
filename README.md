@@ -125,14 +125,15 @@ void loop() {
 ```
 
 # CIRCUIT DIAGRAM:
-![WhatsApp Image 2025-10-10 at 11 50 25_e7048a82](https://github.com/user-attachments/assets/4fd28479-e7a1-4700-8aa4-5965fdc61458)
+![WhatsApp Image 2025-10-10 at 11 50 25_e7048a82](https://github.com/user-attachments/assets/77332e9b-a693-4ac3-ac39-7510b3356722)
+
 
 
 
 # OUTPUT:
 <img width="1920" height="1080" alt="Screenshot (12)" src="https://github.com/user-attachments/assets/361f5170-de69-43af-b7fb-668ffeaa08d8" /> 
 <img width="1920" height="1080" alt="Screenshot (11)" src="https://github.com/user-attachments/assets/3ebc9bbb-6b42-4b3f-b008-b35195ed246c" />
-![WhatsApp Image 2025-10-16 at 08 52 49_24342b98](https://github.com/user-attachments/assets/268818c0-c58b-40c6-8295-c05a3416f206)
+
 
 
 
