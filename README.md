@@ -1,4 +1,6 @@
 # Uploading temperature sensor data in Thing Speak cloud
+# NAME:ELAMUKILAN G 
+# REG :212223040045
 
 # AIM:
 To monitor the temperature sensor data in the Thing speak using an ESP32 controller.
@@ -71,10 +73,68 @@ Automatically act on your data and communicate using third-party services like T
 
 
 # PROGRAM:
+```
+#include "ThingSpeak.h"
+#include <WiFi.h>
+#include "DHT.h"
+char ssid[]="Bhoo";
+char sspass[]="bhoopesh2006";
+const int out=2;
+float humidity=0;
+float temperature=0;
+WiFiClient client;
+DHT dht(out,DHT11);
+unsigned long myChannelField=3109001;
+const int TemperatureField=1;
+const int HumidityField=2;
+const char* myWriteAPIKey="ACFOQEZVV6QIH645";
+
+void setup() {
+
+  dht.begin();
+  Serial.begin(115200);
+  ThingSpeak.begin(client);
+  pinMode(out,INPUT)
+}
+void loop() {
+  // put your main code here, to run repeatedly:
+  if(WiFi.status()!=WL_CONNECTED){
+    Serial.print("Attempting to connect to SSID:");
+    Serial.println(ssid);
+    while(WiFi.status()!=WL_CONNECTED)
+    {
+      WiFi.begin(ssid,sspass);
+      Serial.print(".");
+      delay(5000);
+    }
+    Serial.println("\nConnected");
+  }
+  temperature=dht.readTemperature();
+  humidity=dht.readHumidity();
+  Serial.print("Temperature:");
+  Serial.print(temperature);
+  Serial.println("℃");
+  Serial.print("Humidity:");
+  Serial.print(humidity);
+  Serial.println("%");
+  ThingSpeak.writeField(myChannelField,TemperatureField,temperature,myWriteAPIKey);
+  ThingSpeak.writeField(myChannelField,HumidityField,humidity,myWriteAPIKey);
+  delay(1000);
+
+}
+```
 
 # CIRCUIT DIAGRAM:
+![WhatsApp Image 2025-10-10 at 11 50 25_e7048a82](https://github.com/user-attachments/assets/4fd28479-e7a1-4700-8aa4-5965fdc61458)
+
+
 
 # OUTPUT:
+<img width="1920" height="1080" alt="Screenshot (12)" src="https://github.com/user-attachments/assets/361f5170-de69-43af-b7fb-668ffeaa08d8" /> 
+<img width="1920" height="1080" alt="Screenshot (11)" src="https://github.com/user-attachments/assets/3ebc9bbb-6b42-4b3f-b008-b35195ed246c" />
+![WhatsApp Image 2025-10-16 at 08 52 49_24342b98](https://github.com/user-attachments/assets/268818c0-c58b-40c6-8295-c05a3416f206)
+
+
 
 # RESULT:
 
